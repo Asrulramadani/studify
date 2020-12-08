@@ -23,6 +23,38 @@ html {
   scroll-behavior: smooth;
 }
 
+.app {
+  max-width: 1400px;
+  margin: auto;
+}
+
+h2.title {
+  font-size: 1.9rem;
+  margin-bottom: 1.8rem;
+  position: relative;
+  padding-bottom: 14px;
+  z-index: -99;
+}
+h2.title::before {
+  content: '';
+  width: 40%;
+  height: 5px;
+  margin: auto;
+  position: absolute;
+  background-color: #fe6c79;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+
+
 section.bagian1 {
   height: 100vh;
   margin-bottom: 1rem;
@@ -60,12 +92,14 @@ section.bagian1 .container nav {
   position: fixed;
   background-color: #fff;
   box-shadow: 0 0 3px #b3b3b3;
+  z-index: 10;
 }
 
 section.bagian1 .container nav .logo {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: -10;
 }
 
 section.bagian1 .container nav .logo img {
@@ -111,6 +145,83 @@ section.bagian1 .content {
   text-align: center;
   z-index: 99;
 }
+
+/* Hamburger menu */
+
+
+.hamburger-menu {
+  width: 40px;
+  height: 30px;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  display: none;
+  z-index: 12;
+}
+
+.hamburger-menu input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 99;
+}
+
+.hamburger-menu span {
+  width: 40px;
+  height: 5px;
+  background-color: #fe6c79;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+}
+
+.hamburger-menu span:nth-child(2) {
+  transform-origin: 0 0;
+}
+
+.hamburger-menu span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+
+/* animation toggle in hamburger menu */
+.hamburger-menu input:checked ~ span:nth-child(2) {
+  transform: rotate(45deg) translate(-1px,0);
+  -webkit-transform: rotate(45deg) translate(-1px,0);
+  -moz-transform: rotate(45deg) translate(-1px,0);
+  -ms-transform: rotate(45deg) translate(-1px,0);
+  -o-transform: rotate(45deg) translate(-1px,0);
+  background-color: #fff;
+}
+
+.hamburger-menu input:checked ~ span:nth-child(3) {
+  transform: scalex(0);
+  -webkit-transform: scalex(0);
+  -moz-transform: scalex(0);
+  -ms-transform: scalex(0);
+  -o-transform: scalex(0);
+  opacity: 0;
+  background-color: #fff;
+}
+
+.hamburger-menu input:checked ~ span:nth-child(4) {
+  transform: rotate(-45deg) translate(-1.5px, 0px);
+  -webkit-transform: rotate(-45deg) translate(-1.5px, 0px);
+  -moz-transform: rotate(-45deg) translate(-1.5px, 0px);
+  -ms-transform: rotate(-45deg) translate(-1.5px, 0px);
+  -o-transform: rotate(-45deg) translate(-1.5px, 0px);
+  background-color: #fff;
+}
+
+
+/* Akhir Hamburger Menu */
 
 section.bagian1 .content h3 {
   font-size: 1.4rem;
@@ -172,32 +283,10 @@ section.bagian2 {
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
 }
 
-section.bagian2 h2.title {
-  font-size: 1.9rem;
-  margin-bottom: 1.8rem;
-  position: relative;
-  padding-bottom: 14px;
-  z-index: -99;
-}
-
-section.bagian2 h2.title::before {
-  content: '';
-  width: 40%;
-  height: 5px;
-  margin: auto;
-  position: absolute;
-  background-color: #fe6c79;
-  border-radius: 50px;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -o-border-radius: 50px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
 
 
 section.bagian2 p {
@@ -223,7 +312,7 @@ section.bagian2 .container .card {
   padding: 0 20px;
   height: 180px;
   margin: 20px;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.336);
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -261,13 +350,114 @@ section.bagian2 .container .card h3 {
   margin-top: .7rem;
 }
 
+/* Akhir Section Bagian 2 */
+
+/* Section Bagian 3 */
+
 section.bagian3 {
-  height: 100vh;
   width: 100%;
+  height: auto;
+  padding: 1rem 1rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+section.bagian3::before {
+  content: '';
+  width: 100%;
+  height: 100%;
   background-image: url(../asset/img/bg1.png);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: 0 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -99;
 }
+
+section.bagian3 .container {
+  width: 100%;
+  padding: 10px;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+}
+
+
+
+section.bagian3 .container .card {
+  width: 29%;
+  padding: 30px 20px;
+  color: white;
+  background-color: rgba(255,255,255,.2);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+section.bagian3 .container .card .title-berita {
+  margin-bottom: 2rem;
+}
+
+section.bagian3 .container .card p {
+  font-size: .9rem;
+  line-height: 20px;
+  margin-bottom: 1rem;
+}
+
+section.bagian3 .container .card a {
+  color: white;
+  font-family: 'RobotoSlab';
+  font-size: .8rem;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 1.3rem;
+  padding: 5px 15px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  font-weight: 600;
+  transition: .3s ease;
+  -webkit-transition: .3s ease;
+  -moz-transition: .3s ease;
+  -ms-transition: .3s ease;
+  -o-transition: .3s ease;
+}
+
+section.bagian3 .container .card a:hover {
+  color: #fe6c79;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid transparent;
+} 
+
+section.bagian3 .container .card hr {
+  border: 1px solid white;
+}
+section.bagian3 .container .card .info {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+  justify-content: space-between;
+}
+
+section.bagian3 .container .card .info p {
+  font-size: .9rem;
+  margin-right: 1rem;
+  margin-bottom: 3px;
+}
+
+
 
 
 
@@ -281,8 +471,8 @@ section.bagian3 {
     height: 650px;
   }
   section.bagian1 .container nav {
-    justify-content: center;
-    padding: 15px;
+    justify-content: space-between;
+    padding: 15px 20px;
   }
   section.bagian1 .container nav .logo img {
     width: 50px;
@@ -290,9 +480,63 @@ section.bagian3 {
   section.bagian1 .container nav .logo span {
     font-size: 1.3rem;
   }
+  
+  /* Hamburger Menu */
+
   section.bagian1 .container nav ul {
-    display: none;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: #fe6c79;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 10;
+    transform: translatex(100%);
+    -webkit-transform: translatex(100%);
+    -moz-transform: translatex(100%);
+    -ms-transform: translatex(100%);
+    -o-transform: translatex(100%);
+    opacity: 0;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
   }
+
+  section.bagian1 .container nav.active ul {
+    transform: translate(0);
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    -ms-transform: translate(0);
+    -o-transform: translate(0);
+    opacity: 1;
+    padding: 30px 0;
+  }
+
+  section.bagian1 .container nav.active ul a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 1.2rem;
+  }
+
+  section.bagian1 .container nav.active ul a:hover {
+    color: #ffffffd5;
+  }
+
+
+  .hamburger-menu {
+    display: flex;
+  }
+
+  /* Akhir Hamburger Menu */
+
   section.bagian1 .content {
     width: 100%;
     padding: 0 20px;
@@ -313,7 +557,22 @@ section.bagian3 {
 
 
   /* Section Bagian 2 */
+  section.bagian2 {
+    margin-top: 0;
+  }
   section.bagian2 h2.title {
     font-size: 1.4rem;
+  }
+
+  /* Section Bagian 3 */
+  section.bagian3::before {
+    background-position: 0 -30px;
+  }
+  section.bagian3 .container .card {
+    width: 90%;
+    margin: 10px;
+  }
+  section.bagian3 .container .card:nth-child(1) {
+    display: none;
   }
 }
