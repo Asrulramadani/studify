@@ -595,7 +595,7 @@ section.bagian4 {
 
   /* Section Bagian 3 */
   section.bagian3 {
-    height: 1100px;
+    height: auto;
   }
   section.bagian3::before {
     background-position: 0 -30px;
