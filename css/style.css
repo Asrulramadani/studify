@@ -28,6 +28,7 @@ html {
   margin: auto;
 }
 
+
 h2.title {
   font-size: 1.9rem;
   margin-bottom: 3.8rem;
@@ -287,10 +288,12 @@ section.bagian2 {
   margin-bottom: 1rem;
 }
 
-
+section.bagian2 h2.title {
+  margin-bottom: 2rem;
+}
 
 section.bagian2 p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 700;
 }
 
@@ -356,7 +359,7 @@ section.bagian2 .container .card h3 {
 
 section.bagian3 {
   width: 100%;
-  height: auto;
+  height: 115vh;
   padding: 1rem 1rem 5rem;
   display: flex;
   flex-direction: column;
@@ -457,6 +460,24 @@ section.bagian3 .container .card .info p {
   margin-bottom: 3px;
 }
 
+/* Akhir Bagian 3 */
+
+
+/* Bagian 4 */
+
+section.bagian4 {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+
+/* Akhir bagian 4 */
 
 
 
@@ -464,6 +485,12 @@ section.bagian3 .container .card .info p {
 /* Responsive Breakpoint */
 
 @media (max-width: 770px) {
+
+  h2.title {
+    font-size: 1.7rem;
+  }
+
+
   section.bagian1 {
     height: 530px;
   }
@@ -560,11 +587,11 @@ section.bagian3 .container .card .info p {
   section.bagian2 {
     margin-top: 0;
   }
-  section.bagian2 h2.title {
-    font-size: 1.4rem;
-  }
 
   /* Section Bagian 3 */
+  section.bagian3 {
+    height: 155vh;
+  }
   section.bagian3::before {
     background-position: 0 -30px;
   }
@@ -574,5 +601,10 @@ section.bagian3 .container .card .info p {
   }
   section.bagian3 .container .card:nth-child(1) {
     display: none;
+  }
+
+  /* section bagian 4 */
+  section.bagian4 {
+    margin-top: 1rem;
   }
 }
