@@ -617,7 +617,7 @@ section.bagian5 footer a:hover {
 
 /* Responsive Breakpoint */
 
-@media (max-width: 770px) {
+@media (max-width: 850px) {
 
   h2.title {
     font-size: 1.6rem;
@@ -764,6 +764,7 @@ section.bagian5 footer a:hover {
   /* section bagian 5 */
 
   section.bagian5  {
+    width: 100%;
     flex-direction: column;
     background-color: transparent;
     
@@ -785,10 +786,11 @@ section.bagian5 footer a:hover {
     margin-bottom: 2rem;
   } 
 
-  section.bagian5 .kontak footer {
+  section.bagian5 footer {
     width: 100%;
-    padding: 20px 0;
-  }
+    color: white;
+    background-color: #fe6c79;
+}
 
   section.bagian5 .kontak .title,
   section.bagian5 .kontak p {
